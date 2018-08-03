@@ -80,8 +80,8 @@
 		82425AF8210C3D79002C590C /* My Password */ = {
 			isa = PBXGroup;
 			children = (
-				8265EB3021113FB800989325 /* CustomLayOuts */,
 				82425AF9210C3D79002C590C /* AppDelegate.swift */,
+				8265EB3021113FB800989325 /* CustomLayOuts */,
 				8265EB2D2111363500989325 /* Keys */,
 				82425B0E210C6079002C590C /* Model */,
 				82425B0D210C6053002C590C /* Controller */,
@@ -212,10 +212,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-My Password/Pods-My Password-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

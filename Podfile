@@ -7,4 +7,5 @@ target 'My Password' do
 
   # Pods for My Password
 pod 'IQKeyboardManagerSwift'
+pod 'RealmSwift'
 end
