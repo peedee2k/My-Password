@@ -36,7 +36,7 @@ class DetailController: UIViewController {
         setupLabels()
         
     }
-    
+    // MARK: - Setup Labels
     
     func setupLabels() {
         guard let label = selectedAccount?.accountTitle else { return }
