@@ -8,14 +8,15 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
-struct Account {
-    var accountTitle: String
-    var accountNumber: String
-    var userName: String
-    var password: String
-    var phoneNumber: String
-    var url: String
-    var note: String
+class Account: Object {
+    @objc dynamic var accountTitle: String = ""
+    @objc dynamic var accountNumber: String = ""
+    @objc dynamic var userName: String = ""
+   @objc dynamic var password: String = ""
+   @objc dynamic var phoneNumber: String = ""
+   @objc dynamic var url: String = ""
+   @objc dynamic var note: String = ""
     
 }

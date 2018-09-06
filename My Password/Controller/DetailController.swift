@@ -45,8 +45,8 @@ class DetailController: UIViewController {
         acNumLbl.text = acNum
         guard let user = selectedAccount?.userName else { return }
         userNameLbl.text = user
-        guard let password = selectedAccount?.password else { return }
-        passwordLbl.text = password
+//        guard let password = selectedAccount?.password else { return }
+        passwordLbl.text = "**********"
         guard let url = selectedAccount?.url else { return }
         urlLbl.text = url
         guard let note = selectedAccount?.note else { return }

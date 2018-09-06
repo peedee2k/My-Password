@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol AccountDetail {
     func addAccountDetail(Ac detail: Account)
@@ -14,7 +15,9 @@ protocol AccountDetail {
 
 class NewACController: UIViewController {
     
-    var delegate: AccountDetail? = nil
+    let realm = try! Realm()
+    
+   // var delegate: AccountDetail? = nil
     
     @IBOutlet weak var saveButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var acTitleField: UITextField!
@@ -60,9 +63,24 @@ class NewACController: UIViewController {
     func addAccountDetails() {
         
         if acTitleField.text != nil {
-            let ac = Account(accountTitle: acTitleField.text!,accountNumber: acNumField.text!, userName: userNameField.text!, password: passwordField.text!, phoneNumber: phoneNumField.text!, url: urlField.text!, note: noteView.text!)
-                
-            delegate?.addAccountDetail(Ac: ac)
+            let ac = Account()
+            ac.accountTitle = acTitleField.text!
+            ac.accountNumber = acNumField.text!
+            ac.userName = userNameField.text!
+            ac.password = passwordField.text!
+            ac.phoneNumber = phoneNumField.text!
+            ac.url = urlField.text!
+            ac.note = noteView.text!
+            
+            
+         //   delegate?.addAccountDetail(Ac: ac)
+            do {
+                try realm.write {
+                    realm.add(ac)
+                }
+            } catch {
+                print("Error While saving \(error)")
+            }
             emptyAlTExtField()
             navigationItem.rightBarButtonItem?.isEnabled = false
         } else {
