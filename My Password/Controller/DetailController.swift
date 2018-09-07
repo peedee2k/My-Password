@@ -16,12 +16,14 @@ class DetailController: UIViewController {
     
     @IBOutlet weak var passwordLbl: UILabel!
     
+    
     @IBOutlet weak var phoneNumLbl: UILabel!
     
     @IBOutlet weak var urlLbl: UILabel!
     
     @IBOutlet weak var noteViewLbl: UILabel!
     
+   
     var selectedAccount: Account? {
         didSet {
             
@@ -51,9 +53,16 @@ class DetailController: UIViewController {
         urlLbl.text = url
         guard let note = selectedAccount?.note else { return }
         noteViewLbl.text = note
-
-        
-        
-        
+   
     }
+    
+    @IBAction func showPassword(_ sender: Any) {
+        guard let password = selectedAccount?.password else { return }
+        passwordLbl.text = password
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
+            self.passwordLbl.text = "**********"
+        })
+    }
+    
+    
 }
