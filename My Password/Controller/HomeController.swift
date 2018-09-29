@@ -21,7 +21,7 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.red
         navigationController?.navigationBar.barTintColor = UIColor.yellow
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(showEditing))//showAccounts()
+      //  navigationItem.leftBarButtonItem = UIBarButtonItem(title: "SignOut", style: .plain, target: self, action: #selector(showEditing))
     }
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.title = ""
@@ -30,15 +30,23 @@ class HomeController: UIViewController {
         navigationItem.title = "My Password"
         showAccounts()
     }
-    @objc func showEditing(sender: UIBarButtonItem) {
-        myTableView.setEditing(myTableView.isEditing, animated: true)
-        if myTableView.isEditing == true {
-            myTableView.isEditing = false
-            navigationItem.leftBarButtonItem?.title = "Edit"
-        } else {
-            myTableView.isEditing = true
-            navigationItem.leftBarButtonItem?.title = "Done"
-        }
+    
+    
+    @IBAction func signOutTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func showEditing() {
+        dismiss(animated: true, completion: nil)
+        
+//        myTableView.setEditing(myTableView.isEditing, animated: true)
+//        if myTableView.isEditing == true {
+//            myTableView.isEditing = false
+//            navigationItem.leftBarButtonItem?.title = "Edit"
+//        } else {
+//            myTableView.isEditing = true
+//            navigationItem.leftBarButtonItem?.title = "Done"
+//        }
     }
     // MARK: - Read data from Realm Object
     func showAccounts() {
@@ -84,23 +92,50 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: MyKeys.toDetailVC, sender: cell)
         
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             guard let ac = accounts?[indexPath.row] else { return }
+            confirmToDeleteCell(cell: ac)
+//
+//       // confirmToDeleteCell(cell: ac)
+//            do {
+//                try realm.write {
+//                    realm.delete(ac)
+//
+//                }
+//
+//            } catch {
+//                print("Error while deleteing object: \(error)")
+//            }
+//
+            //myTableView.reloadData()
+        }
+    }
+    func  confirmToDeleteCell(cell: Account) {
+        let alert = UIAlertController(title: "Delete Account", message: "Do you want to to delete this account ?", preferredStyle: .alert)
         
+        let actionYes = UIAlertAction(title: "Yes", style: .default) { (showAlert) in
             do {
-                try realm.write {
-                    realm.delete(ac)
+                try self.realm.write {
+                    self.realm.delete(cell)
                     
                 }
                 
             } catch {
                 print("Error while deleteing object: \(error)")
             }
-            myTableView.reloadData()
+            self.myTableView.reloadData()
         }
+        let actionNo = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        alert.addAction(actionYes)
+        alert.addAction(actionNo)
+        
+        present(alert, animated: true, completion: nil)
     }
-    
     
     
 }

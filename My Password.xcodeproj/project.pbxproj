@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820DEBFB2142082600A50B78 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820DEBFA2142082600A50B78 /* WelcomeController.swift */; };
 		82425AFA210C3D79002C590C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82425AF9210C3D79002C590C /* AppDelegate.swift */; };
 		82425AFC210C3D79002C590C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82425AFB210C3D79002C590C /* HomeController.swift */; };
 		82425AFF210C3D79002C590C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82425AFD210C3D79002C590C /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		2CE123714690CF974F4383B2 /* Pods-My Password.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Password.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Password/Pods-My Password.debug.xcconfig"; sourceTree = "<group>"; };
+		820DEBFA2142082600A50B78 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		82425AF6210C3D79002C590C /* My Password.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Password.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82425AF9210C3D79002C590C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82425AFB210C3D79002C590C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		82425B0D210C6053002C590C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				820DEBFA2142082600A50B78 /* WelcomeController.swift */,
 				82425AFB210C3D79002C590C /* HomeController.swift */,
 				82425B0B210C4B16002C590C /* NewACController.swift */,
 				8265EB2B211135AE00989325 /* DetailController.swift */,
@@ -253,6 +256,7 @@
 			files = (
 				82425AFC210C3D79002C590C /* HomeController.swift in Sources */,
 				8265EB2F2111368C00989325 /* MyKeys.swift in Sources */,
+				820DEBFB2142082600A50B78 /* WelcomeController.swift in Sources */,
 				82425B10210C6094002C590C /* Account.swift in Sources */,
 				8265EB3221113FFE00989325 /* CustomLabel.swift in Sources */,
 				82425B0C210C4B16002C590C /* NewACController.swift in Sources */,
@@ -407,6 +411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QA6MH6558;
 				INFOPLIST_FILE = "My Password/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QA6MH6558;
 				INFOPLIST_FILE = "My Password/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
